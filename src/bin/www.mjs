@@ -8,8 +8,9 @@ import { fileURLToPath } from 'url';
 
 const __dirname =
     import.meta.dirname || dirname(fileURLToPath(import.meta.url));
-const root = path.resolve(__dirname, '..', '..');
-const debug = debugFunc(`${root}:server`);
+const dirnameArrays = path.resolve(__dirname, '..', '..').split(path.sep);
+// Get the last value as that is the root directory
+const debug = debugFunc(`${dirnameArrays[dirnameArrays.length - 1]}:server`);
 /**
  * Get port from environment and store in Express.
  */
